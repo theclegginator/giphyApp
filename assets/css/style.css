@@ -1,3 +1,7 @@
+body {
+    font-family: 'Maven Pro', sans-serif;
+}
+
 img {
     /* float: left; */
     margin: 10px;
@@ -8,6 +12,37 @@ img {
 
 h2 {
     clear: both;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    background-color: rgb(0, 177, 53);
+    color: white;
+    border: 2px solid rgb(145, 145, 145);
+    border-top: 2px solid rgb(179, 178, 178);
+    border-bottom: 4px solid rgb(73, 73, 73);
+    border-radius: 3px;
+}
+
+button {
+    /* height: 30px; */
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    background-color: rgb(21, 178, 250);
+    color: white;
+    border: 2px solid rgb(145, 145, 145);
+    border-top: 2px solid rgb(179, 178, 178);
+    border-bottom: 4px solid rgb(73, 73, 73);
+    border-radius: 3px;
+}
+
+input {
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    border: 2px solid rgb(175, 175, 175);
+    border-radius: 3px;
+    width: 150px;
 }
 
 .topicDiv {

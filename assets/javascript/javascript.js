@@ -1,5 +1,5 @@
 // create topics array
-let topics = ["Guitar", "Music", "Nintendo", "Art", "Architecture"];
+let topics = ["Food", "Guitar", "Music", "Nintendo", "Art", "Architecture"];
 let firstPull = true;
 let firstClick = true;
 
@@ -10,9 +10,10 @@ function buildButtons () {
     $("#buttonArea").empty();
     for (let i = 0; i < topics.length; i++) {
         let button = $("<button>");
+        $(button).attr("style", "font-family: 'Maven Pro', sans-serif; font-size: 15px;");
         let classDetail = topics[i];
         button.addClass("gifButton"); 
-        button.attr("id", "topic-"+classDetail); // adds a dynamic class to each element with a description
+        button.attr("id", `topic-${classDetail}`); // adds a dynamic class to each element with a description
         button.html(topics[i]); // Add the terms from the topics array as the text for the buttons.
         $("#buttonArea").prepend(button);
     }
@@ -22,7 +23,7 @@ function buildButtons () {
 // Function to perform the image search for the button that was clicked. A search term is passed in as the argument.
 // =======================
 function imageSearch (topicSelection) {
-    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topicSelection + "&api_key=DX5szsYMl0uUPUtcZ2X5cvsy9FG9hZ7F&limit=10";
+    let queryURL = `https://api.giphy.com/v1/gifs/search?q=${topicSelection}&api_key=DX5szsYMl0uUPUtcZ2X5cvsy9FG9hZ7F&limit=10`;
     // Create AJAX call
     $.ajax({
         url: queryURL,
@@ -43,12 +44,12 @@ function imageSearch (topicSelection) {
                 var p = $("<p>").text("Rating: " + results[i].rating);
                 var topicImage = $("<img>"); // create an image element
                 topicImage.attr("src", results[i].images.fixed_height_still.url); //add the image source to the img element
-                topicImage.attr("alt", topicSelection+"-GIF-"+(i+1)); // provide some alt text
+                topicImage.attr("alt", `${topicSelection}-GIF-${(i+1)}`); // provide some alt text
                 // add a data attribute to tell us that the image is still. We will use this later.
                 topicImage.attr("data-animated", "false"); 
-                // append the paragraph element and image element created to the topicDiv
-                topicDiv.append(p); 
+                // append the paragraph element and image element created to the topicDiv. image first so rating goes below it.
                 topicDiv.append(topicImage);
+                topicDiv.append(p); 
                 // Finally, prepend the div with the image to the gif area of the HTML.
                 $("#gifArea").prepend(topicDiv);
                 // Due to asynchronous behavior, want to prepend topic title only on the last iteration. 
