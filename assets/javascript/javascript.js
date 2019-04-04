@@ -1,5 +1,7 @@
 // create topics array
 let topics = ["Guitar", "Music", "Nintendo", "Art", "Architecture"];
+let firstPull = true;
+let firstClick = true;
 
 // =======================
 // create buttons in your HTML page using the topics array above. Use jQuery append method.
@@ -29,9 +31,14 @@ function imageSearch (topicSelection) {
       // Interact with the response data below
         .then(function(response) {
             var results = response.data; // store data request result in a variable to reference below.
+            if (firstPull) {
+                $("#firstPull").html("<p><h3>Click an image to animate it!</h3></p>")
+                firstPull = false;
+            }
             for (var i = 0; i < results.length; i++) {
                 // dynamically create a new div for each topic that is searched (via click)
                 var topicDiv = $("<div>");
+                topicDiv.addClass("topicDiv");
                 // create a paragraph element and give it the rating from the API results for that image
                 var p = $("<p>").text("Rating: " + results[i].rating);
                 var topicImage = $("<img>"); // create an image element
@@ -44,9 +51,15 @@ function imageSearch (topicSelection) {
                 topicDiv.append(topicImage);
                 // Finally, prepend the div with the image to the gif area of the HTML.
                 $("#gifArea").prepend(topicDiv);
+                // Due to asynchronous behavior, want to prepend topic title only on the last iteration. 
+                if (i === 9) {
+                    $("#gifArea").prepend(`<h2>${topicSelection}</h2>`);
+                }
               }
         });
+    
 }
+
 
 // =======================
 // Create a click event that will react to any buttons that are pressed. It will pull the topic from the button and pass into AJAX.
@@ -61,6 +74,10 @@ $("#buttonArea").on("click", ".gifButton", function() {
 // Create a click event that will animate the GIF
 // ======================= 
 $("#gifArea").on("click", "img", function() {
+    if (firstClick) { // removes the instructional message after the user clicks the first GIF.
+        $("#firstPull").html("");
+        firstClick = false;
+    }
     let animated = $(this).attr("data-animated"); // get the attribute of data-animated
     let imageURL = $(this).attr("src"); // get the source URL of the GIF.
     if (animated === "false") { //if the image is not animated, we will animate it.
@@ -93,6 +110,9 @@ $("#textButton").on("click", function () {
 // ======================= 
 $("#clearButton").on("click", function () {
     $("#gifArea").html(""); // clear out the gif Area (does not clear out topics array in current state)
+    $("#firstPull").html("");
+    firstPull = true;
+    firstClick = true;
 });
 
 buildButtons(); // Run the build buttons function once upon loading the page (without an input)

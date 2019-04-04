@@ -1,0 +1,20 @@
+img {
+    /* float: left; */
+    margin: 10px;
+    border-radius: 7px;
+    border: 5px solid drakgray;
+    /* width: 400px; */
+}
+
+h2 {
+    clear: both;
+}
+
+.topicDiv {
+    float: left;
+}
+
+#contentArea {
+    margin: auto;
+    width: 90%;
+}

@@ -7,22 +7,24 @@
     <title>GIPHY Time!</title>
     <!-- jQuery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- div used for populating GIF buttons with javascript -->
-    <div id="buttonArea"></div>
-    <!-- text area for user to add new GIF buttons -->
-    <button id="textButton">Add a new GIF Button!</button>
-    
-    <input type="text" id="textArea" required minlength="3" maxlength="20" size="12" placeholder="GIF Topic">
-    
-    <br>
-    <button id="clearButton">Clear GIFs</button>
-
-    <!-- div used for generating gifs -->
-    <div id="gifArea"></div>
-    
+    <div id="contentArea">
+        <!-- div used for populating GIF buttons with javascript -->
+        <div id="buttonArea"></div>
+        <!-- text area for user to add new GIF buttons -->
+        <button id="textButton">Add a new GIF Button!</button>
+        
+        <input type="text" id="textArea" required minlength="3" maxlength="20" size="12" placeholder="GIF Topic">
+        
+        <br>
+        <button id="clearButton">Clear GIFs</button>
+        <div id="firstPull"></div>
+        <!-- div used for generating gifs -->
+        <div id="gifArea"></div>
+    </div>
     <script src="assets/javascript/javascript.js"></script>
 </body>
 </html>
