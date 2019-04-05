@@ -134,7 +134,7 @@ $("#gifArea").on("click", ".fa-star", function(){ // When the user clicks a .fas
         firstFavorite = false;
     }
     $(this).parent().clone().appendTo("#favorites"); // makes a copy of the parent element (the GIF and moves it) 
-    $(this).parent().empty();
+    $(this).parent().empty(); // remove the gif from here after favoriting
 })
 $("#favorites").on("click", ".fa-star", function(){ 
     $(this).parent().empty(); // gets rid of the favorite if you click it again
