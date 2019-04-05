@@ -75,11 +75,11 @@ function imageSearch (topicSelection, offset) {
 // ======================= 
 $("#buttonArea").on("click", ".gifButton", function() {
     let topicSelection = $(this).attr("id"); // get the topic from the button ID.
-    let currentOffset = parseInt($(this).attr("data-offset"));
-    let offset = currentOffset + 10;
-    $(this).attr("data-offset", offset);
+    let currentOffset = parseInt($(this).attr("data-offset")); // check the current offset of the topic.
+    let offset = currentOffset + 10; // increase the offset by ten so only new images will show up.
+    $(this).attr("data-offset", offset); // set the new offset
     topicSelection = topicSelection.substring(6, topicSelection.length); // trim to just the word.
-    imageSearch(topicSelection, offset);
+    imageSearch(topicSelection, offset); // pass the offset and topic selection to the imageSearch function
   });
 
 // =======================
