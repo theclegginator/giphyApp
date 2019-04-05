@@ -1,5 +1,5 @@
 // create topics array
-let topics = ["Food", "Guitar", "Music", "Nintendo", "Art", "Architecture"];
+let topics = ["Dogs", "Food", "Guitar", "Music", "Nintendo", "Art", "Architecture"];
 let firstPull = true;
 let firstClick = true;
 
@@ -49,7 +49,9 @@ function imageSearch (topicSelection) {
                 topicImage.attr("data-animated", "false"); 
                 // append the paragraph element and image element created to the topicDiv. image first so rating goes below it.
                 topicDiv.append(topicImage);
-                topicDiv.append(p); 
+                topicDiv.append(p);
+                topicDiv.addClass("wrapper")
+                //topicDiv.attr("style", "justify-content: center;") 
                 // Finally, prepend the div with the image to the gif area of the HTML.
                 $("#gifArea").prepend(topicDiv);
                 // Due to asynchronous behavior, want to prepend topic title only on the last iteration. 
@@ -75,10 +77,10 @@ $("#buttonArea").on("click", ".gifButton", function() {
 // Create a click event that will animate the GIF
 // ======================= 
 $("#gifArea").on("click", "img", function() {
-    if (firstClick) { // removes the instructional message after the user clicks the first GIF.
-        $("#firstPull").html("");
-        firstClick = false;
-    }
+    // if (firstClick) { // removes the instructional message after the user clicks the first GIF.
+    //     $("#firstPull").html("");
+    //     firstClick = false;
+    // }
     let animated = $(this).attr("data-animated"); // get the attribute of data-animated
     let imageURL = $(this).attr("src"); // get the source URL of the GIF.
     if (animated === "false") { //if the image is not animated, we will animate it.

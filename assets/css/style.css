@@ -1,10 +1,18 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 90%;
+    grid-column-gap: 12em;
+    justify-items: center;
+    justify-content: center;
+}
+
 body {
     font-family: 'Maven Pro', sans-serif;
 }
 
 img {
     /* float: left; */
-    margin: 10px;
+    margin: 5px;
     border-radius: 7px;
     border: 5px solid drakgray;
     /* width: 400px; */
@@ -13,7 +21,6 @@ img {
 h2 {
     clear: both;
     padding: 10px;
-    margin-right: 10px;
     margin-bottom: 15px;
     background-color: rgb(0, 177, 53);
     color: white;
@@ -26,7 +33,7 @@ h2 {
 button {
     /* height: 30px; */
     padding: 10px;
-    margin-right: 10px;
+    margin: 5px;
     margin-bottom: 15px;
     background-color: rgb(21, 178, 250);
     color: white;
@@ -51,5 +58,9 @@ input {
 
 #contentArea {
     margin: auto;
-    width: 90%;
+    margin-top: 50px;
+}
+
+#gifArea {
+    justify-content: center;
 }
