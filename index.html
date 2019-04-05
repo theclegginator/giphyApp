@@ -7,8 +7,13 @@
     <title>GIPHY Time!</title>
     <!-- jQuery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Personal Style Sheet and Reset CSS Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Google Fonts CDN -->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
@@ -17,11 +22,12 @@
         <div id="buttonArea"></div>
         <!-- text area for user to add new GIF buttons -->
         <div class="grid-row">
-            <button id="textButton" style="background-color: rgb(255, 187, 60); font-family: 'Maven Pro', sans-serif; font-size: 15px;">Add a new GIF Button!</button>
+            <button id="textButton" style="background-color: rgb(255, 187, 60); font-family: 'Maven Pro', sans-serif; font-size: 12px;">Add a new GIF Button!</button>
             <input type="text" id="textArea" required minlength="3" maxlength="20" size="12" placeholder="GIF Topic">
         </div>  
         <button id="clearButton" style="background-color: rgb(167, 73, 167); font-family: 'Maven Pro', sans-serif; font-size: 15px; width: 300px;">Clear GIFs</button>
         <div id="firstPull"></div>
+        <div id="favorites"></div>
         <!-- div used for generating gifs -->
         <div id="gifArea"></div>
     </div>
